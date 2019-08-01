@@ -1,0 +1,10 @@
+  <div class="row">
+    <%= form_with url:"/tweets/", class: "col s12",method: :post, local: true do |form| %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= form.text_field :text , class: :text, placeholder: "message", name: :text %> 
+          <%= form.submit value="SENT" %>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+    <title>Miniap</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="#2e7d32 green darken-3">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Miniapp</a>
+      <% if user_signed_in? %>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+        <li>
+        <a class="post" href="/tweets/new">投稿する</a>
+        </li>
+      </ul>
+    </div>
+    <% else %>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+        </li>
+      </ul>
+      <% end %>
+  </nav>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+  <div class="row">
+    <%= form_with url:"/tweets/#{@tweet.id}", class: "col s12",method: :patch,local: true do |form| %>
+      <div class="row">
+        編集する
+        <div class="input-field col s6">
+          <%= form.text_field :text , class: :text, name: :text, value: @tweet.text %>
+          <%= form.submit value="SENT" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
